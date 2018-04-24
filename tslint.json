@@ -4,6 +4,10 @@
     "tslint-ionic-rules",
     "tslint-config-prettier"
   ],
+  "rules": {
+    "member-access": [true, "no-public"],
+    "object-literal-sort-keys": false
+  },
   "linterOptions": {
     "exclude": [
       "node_modules/**/*.ts"

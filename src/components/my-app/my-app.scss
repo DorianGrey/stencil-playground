@@ -1,6 +1,8 @@
+@import "../../styles/colors.scss";
+
 header {
   background: #5851ff;
-  color: white;
+  color: $color-white;
   height: 56px;
   display: flex;
   align-items: center;
