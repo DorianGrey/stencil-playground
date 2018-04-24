@@ -7,7 +7,7 @@ import { MatchResults } from "@stencil/router";
   shadow: true
 })
 export class AppProfile {
-  @Prop() match: MatchResults;
+  @Prop() match!: MatchResults;
 
   render() {
     if (this.match && this.match.params.name) {

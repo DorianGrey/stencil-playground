@@ -8,11 +8,16 @@
       "dom",
       "es2015"
     ],
+    "baseUrl": ".",
+    "noEmitHelpers": true,
+    "importHelpers": true,
+    "strict": true,
     "moduleResolution": "node",
     "module": "es2015",
     "target": "es2015",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "noImplicitReturns": true,
     "jsx": "react",
     "jsxFactory": "h"
   },
