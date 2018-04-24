@@ -14,6 +14,7 @@ Use `yarn` or `npm run` to execute once of the tasks below.
 - `test.watch`: Run tests in watch mode.
 - `serve`: Serves the build output. Uses stencil's dev server.
 - `serve.prod`: Serves the build output with some production-level stuff like compression enabled. Uses `koa` under the hood.
+- `lint`: Executes `tslint` on the project's code; note that the `--fix` flag is used.
 
 ## Lighthouse reports
 The current lighthouse reports can be found in the `lighthouse-reports` folder. 
