@@ -19,6 +19,8 @@ export class AppProfile {
           </p>
         </div>
       );
+    } else {
+      return "";
     }
   }
 }
