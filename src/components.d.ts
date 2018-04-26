@@ -23,6 +23,7 @@ declare global {
   interface HTMLAttributes {}
 }
 
+import '@stencil/redux';
 import '@stencil/router';
 
 import {

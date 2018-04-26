@@ -1,10 +1,19 @@
-import { Component } from "@stencil/core";
+import { Component, Prop } from "@stencil/core";
+import { Store } from "@stencil/redux";
+import { configureStore } from "../../state/store";
 
 @Component({
   tag: "my-app",
   styleUrl: "my-app.scss"
 })
 export class MyApp {
+  @Prop({ context: "store" })
+  store!: Store;
+
+  componentWillLoad(): void {
+    this.store.setStore(configureStore());
+  }
+
   render() {
     return (
       <div>

@@ -1,5 +1,8 @@
-import { Component, Prop } from "@stencil/core";
+import { Component, Prop, State } from "@stencil/core";
 import { MatchResults } from "@stencil/router";
+import { Action, Store } from "@stencil/redux";
+
+import { incrementVisitTime } from "../../state/visitTime/visitTime";
 
 @Component({
   tag: "app-profile",
@@ -8,6 +11,45 @@ import { MatchResults } from "@stencil/router";
 })
 export class AppProfile {
   @Prop() match!: MatchResults;
+  @Prop({ context: "store" })
+  store!: Store;
+
+  @State() visitTime = 0;
+  incrementVisitTime!: Action;
+  timeoutId = -1;
+
+  componentWillLoad(): void {
+    // FIXME: This is a horrible workaround, but in the tests,
+    // it happens that the store does NOT exist.... ?!
+    if (!this.store) {
+      return;
+    }
+
+    this.store.mapStateToProps(this, (state: any) => {
+      return { visitTime: state.visitTime };
+    });
+
+    this.store.mapDispatchToProps(this, {
+      incrementVisitTime
+    });
+  }
+
+  componentDidLoad(): void {
+    // FIXME: This is a horrible workaround, but in the tests,
+    // it happens that the store does NOT exist.... ?!
+    if (!this.store) {
+      return;
+    }
+
+    this.timeoutId = (setInterval(
+      () => this.incrementVisitTime(),
+      1000
+    ) as any) as number;
+  }
+
+  componentDidUnload(): void {
+    clearInterval(this.timeoutId);
+  }
 
   render() {
     if (this.match && this.match.params.name) {
@@ -17,6 +59,7 @@ export class AppProfile {
             Hello! My name is {this.match.params.name}. My name was passed in
             through a route param!
           </p>
+          <p>You have been watching me for {this.visitTime} seconds for now!</p>
         </div>
       );
     } else {

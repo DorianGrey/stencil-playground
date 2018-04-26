@@ -32,7 +32,7 @@ describe("app-profile", () => {
 
       await window.flush();
       expect(element.textContent).toEqual(
-        "Hello! My name is stencil. My name was passed in through a route param!"
+        "Hello! My name is stencil. My name was passed in through a route param!You have been watching me for 0 seconds for now!"
       );
     });
   });

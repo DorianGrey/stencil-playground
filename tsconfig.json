@@ -12,6 +12,7 @@
     "noEmitHelpers": true,
     "importHelpers": true,
     "strict": true,
+    "suppressImplicitAnyIndexErrors": true,
     "moduleResolution": "node",
     "module": "es2015",
     "target": "es2015",
