@@ -24,6 +24,7 @@ describe("app-profile", () => {
     });
 
     it("should work with a name passed", async () => {
+      await window.flush();
       element.match = {
         params: {
           name: "stencil"

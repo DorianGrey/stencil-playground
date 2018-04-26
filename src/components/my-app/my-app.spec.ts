@@ -6,13 +6,21 @@ describe("my-app", () => {
     expect(new MyApp()).toBeTruthy();
   });
 
+  let element;
+  let window: TestWindow;
+
   describe("rendering", () => {
     beforeEach(async () => {
-      const window = new TestWindow();
-      await window.load({
+      window = new TestWindow();
+      element = await window.load({
         components: [MyApp],
         html: "<my-app></my-app>"
       });
+    });
+
+    it("should not render any content if there is not a match", async () => {
+      await window.flush();
+      expect(element.textContent).not.toEqual("");
     });
   });
 });
