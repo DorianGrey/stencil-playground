@@ -157,9 +157,9 @@
   dependencies:
     path-to-regexp "^1.7.0"
 
-"@stencil/router@latest":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@stencil/router/-/router-0.1.0.tgz#02d8fd10559176df780e172550502a90cde30c77"
+"@stencil/router@^0.0.28":
+  version "0.0.28"
+  resolved "https://registry.yarnpkg.com/@stencil/router/-/router-0.0.28.tgz#4bac65470ac60c6af3137bf8c5143da9b9a74fce"
 
 "@stencil/sass@^0.0.3":
   version "0.0.3"
