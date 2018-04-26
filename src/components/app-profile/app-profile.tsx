@@ -19,12 +19,6 @@ export class AppProfile {
   timeoutId = -1;
 
   componentWillLoad(): void {
-    // FIXME: This is a horrible workaround, but in the tests,
-    // it happens that the store does NOT exist.... ?!
-    if (!this.store) {
-      return;
-    }
-
     this.store.mapStateToProps(this, (state: any) => {
       return { visitTime: state.visitTime };
     });
@@ -35,12 +29,6 @@ export class AppProfile {
   }
 
   componentDidLoad(): void {
-    // FIXME: This is a horrible workaround, but in the tests,
-    // it happens that the store does NOT exist.... ?!
-    if (!this.store) {
-      return;
-    }
-
     this.timeoutId = (setInterval(
       () => this.incrementVisitTime(),
       1000
