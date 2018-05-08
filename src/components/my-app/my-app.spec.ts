@@ -6,7 +6,7 @@ describe("my-app", () => {
     expect(new MyApp()).toBeTruthy();
   });
 
-  let element;
+  let element: any;
   let window: TestWindow;
 
   describe("rendering", () => {
