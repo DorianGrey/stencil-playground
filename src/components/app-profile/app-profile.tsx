@@ -10,11 +10,13 @@ import { incrementVisitTime } from "../../state/visitTime/visitTime";
   shadow: true
 })
 export class AppProfile {
-  @Prop() match!: MatchResults;
+  @Prop()
+  match!: MatchResults;
   @Prop({ context: "store" })
   store!: Store;
 
-  @State() visitTime = 0;
+  @State()
+  visitTime = 0;
   incrementVisitTime!: Action;
   timeoutId = -1;
 
